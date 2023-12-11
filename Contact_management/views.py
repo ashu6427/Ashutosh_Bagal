@@ -53,7 +53,7 @@ def update_contact(request, con_id):
 def delete_contact(request, con_id):
 	contact_record = contacts.objects.get(id = con_id)
 	if request.method == 'POST':
-		print(">>>>>>>>>>>delele>>>>>>")
+		print(">>>>>>>>>>>delete>>>>>>")
 		contact_record.delete()
 		messages.success(request, "Contact Deleted!")
 
@@ -72,15 +72,15 @@ def contact_details(request, con_id):
 	
 
 
-def check_if_contact_exists(operation, contact_id, contact_email):
-	if operation == "create_contact" and contacts.objects.filter(email = contact_email):
-		print('exists')
-		return True
-	elif operation == "update_contact" and contacts.objects.filter(email = contact_email).exclude(id = contact_id):
-		print('exists')
-		return True
-	else:
-		return False
+# def check_if_contact_exists(operation, contact_id, contact_email):
+# 	if operation == "create_contact" and contacts.objects.filter(email = contact_email):
+# 		print('exists')
+# 		return True
+# 	elif operation == "update_contact" and contacts.objects.filter(email = contact_email).exclude(id = contact_id):
+# 		print('exists')
+# 		return True
+# 	else:
+# 		return False
 	
 
 
